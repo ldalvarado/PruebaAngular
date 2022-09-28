@@ -1,0 +1,28 @@
+<p-toast></p-toast>
+<div class="content-section implementation" *ngIf="user">
+  <div class="card">
+      <p-menubar [model]="items">
+          <ng-template pTemplate="start">
+              <img src="assets/img/primeng.svg" height="40" class="mr-2">
+          </ng-template>
+      </p-menubar>
+  </div>
+</div>
+
+<!-- main app container -->
+<div class="app-container"  [ngClass]="{ 'bg-light': !user }">
+  <div *ngIf="user; else loggedOut">
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+  </div>
+  <ng-template #loggedOut>
+    <div class="home-login">
+      <div class="wrap-login p-2 ">
+        <div class="container-login" style="background: rgba(255, 255, 255, 0.05);">
+          <app-alert></app-alert>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

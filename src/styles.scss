@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+
+html, body, .container-app{
+    height:100%;
+    margin:0 !important;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto","Helvetica Neue",sans-serif;
+}
+.app-container{
+    height: 100%;
+}

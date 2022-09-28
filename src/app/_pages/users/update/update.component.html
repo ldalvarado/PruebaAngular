@@ -1,0 +1,53 @@
+<h1 style="text-align: center;">{{isAddMode ? 'REGISTRAR' : 'ACTUALIZAR'}}</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group" style="margin-bottom: 10px;">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+            <input pInputText placeholder="Correo electronico" id="email2" type="text" formControlName="email" [ngClass]="{ 'ng-invalid ng-dirty': (f['email'].invalid && (f['email'].dirty || f['email'].touched)) }"  />
+        </div>
+        <small id="email2-help" *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)" class="p-error block">
+            <div *ngIf="f['email'].errors !== null">
+                {{ f['email'].errors['required'] ? 'SE REQUIERE EMAIL' : f['email'].errors['minlength'] ? 'DEBE TENER MÁS DE 6 CARACTERES' : f['email'].errors['email'] ? 'NO ES UN EMAIL' : '' }}
+            </div>
+        </small>
+    </div>
+    <div class="form-group" style="margin-bottom: 10px;">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input pInputText placeholder="Nombre de usuario" id="username2" type="text" formControlName="username" [ngClass]="{ 'ng-invalid ng-dirty': (f['username'].invalid && (f['username'].dirty || f['username'].touched)) }" />
+        </div>
+        <small id="username2-help" *ngIf="f['username'].invalid && (f['username'].dirty || f['username'].touched)" class="p-error block">
+            <div *ngIf="f['username'].errors !== null">
+                {{ f['username'].errors['required'] ? 'CAMPO REQUERIDO' : f['username'].errors['minlength'] ? 'DEBE TENER MÁS DE 6 CARACTERES' : '' }}
+            </div>
+        </small>
+    </div>
+    <div class="form-group" style="margin-bottom: 10px;">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+            <input pInputText placeholder="Nombre y apellido" id="name2" type="text" formControlName="name" [ngClass]="{ 'ng-invalid ng-dirty': (f['name'].invalid && (f['name'].dirty || f['name'].touched)) }" />
+        </div>
+        <small id="name2-help" *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)" class="p-error block">
+            <div *ngIf="f['name'].errors !== null">
+                {{ f['name'].errors['required'] ? 'CAMPO REQUERIDO' : f['name'].errors['minlength'] ? 'DEBE TENER MÁS DE 6 CARACTERES' : '' }}
+            </div>
+        </small>
+    </div>
+    <div class="form-group" style="margin-bottom: 10px;">
+        <div class="p-inputgroup">
+            <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
+            <input pInputText id="password2" placeholder="Contraseña" type="password" formControlName="password" [ngClass]="{ 'ng-invalid ng-dirty': (f['password'].invalid && (f['password'].dirty || f['password'].touched)) }" />
+        </div>
+        <small id="password2-help" *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="p-error block">
+            <div *ngIf="f['password'].errors !== null">
+                {{ f['password'].errors['required'] ? 'SE REQUIERE CONTRASEÑA' : f['password'].errors['minlength'] ? 'DEBE TENER MÁS DE 6 CARACTERES' : '' }}
+            </div>
+        </small>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" [icon]="loading ? 'pi pi-spin pi-spinner' : ''" iconPos="left" pButton pRipple type="submit" [label]="isAddMode ? 'REGISTRAR' : 'ACTUALIZAR'" style="width: 48%;margin-bottom: 10px;margin-right:2%;">
+        </button>
+        <button [disabled]="loading" routerLink="/users" pButton pRipple type="button" label="CANCELAR" style="width: 48%;margin-bottom: 10px;margin-left:2%;" class="p-button-danger">
+        </button>
+    </div>
+</form>

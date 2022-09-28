@@ -1,0 +1,10 @@
+<div *ngFor="let alert of alerts">
+    <p-messages [severity]="alert.severity ? alert.severity : 'info'">
+        <ng-template pTemplate>
+            <div class="ml-2">{{alert.summary}}</div>
+            <button type="button" (click)="removeAlert(alert)" pripple="" class="p-ripple p-element p-message-close p-link ng-tns-c91-3 ng-star-inserted" style=""><i class="p-message-close-icon pi pi-times ng-tns-c91-3"></i><span class="p-ink" style="height: 28px; width: 28px; top: 4.25px; left: -0.300049px;"></span></button>
+        </ng-template>
+    </p-messages>
+    <p-message (value)="alert" text="Message Content"></p-message>
+</div>
+

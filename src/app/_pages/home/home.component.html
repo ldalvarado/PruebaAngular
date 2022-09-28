@@ -1,0 +1,12 @@
+<div style="display:flex;justify-content:center;">
+    <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{'max-width': '100%', 'max-height': '100px'}" [numVisible]="5">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="item.previewImageSrc" style="width: 100%; display: block;" />
+        </ng-template>
+        <ng-template pTemplate="thumbnail" let-item>
+            <div class="grid grid-nogutter justify-content-center">
+                <img [src]="item.thumbnailImageSrc" style="width: 200px; height: 100px;" />
+            </div>
+        </ng-template>
+    </p-galleria>
+</div>
